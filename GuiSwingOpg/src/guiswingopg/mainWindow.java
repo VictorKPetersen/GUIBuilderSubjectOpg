@@ -27,17 +27,58 @@ public class mainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        calculatorPanel = new javax.swing.JPanel();
+        degreeLabel = new javax.swing.JLabel();
+        radianLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Radian - Vinkel Regner");
+        setMaximumSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1080, 720));
+
+        degreeLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        degreeLabel.setText("Degrees");
+        degreeLabel.setMaximumSize(new java.awt.Dimension(120, 35));
+        degreeLabel.setMinimumSize(new java.awt.Dimension(120, 35));
+        degreeLabel.setPreferredSize(new java.awt.Dimension(120, 35));
+
+        radianLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        radianLabel.setText("Radians");
+        radianLabel.setMaximumSize(new java.awt.Dimension(120, 35));
+        radianLabel.setMinimumSize(new java.awt.Dimension(120, 35));
+        radianLabel.setPreferredSize(new java.awt.Dimension(120, 35));
+
+        javax.swing.GroupLayout calculatorPanelLayout = new javax.swing.GroupLayout(calculatorPanel);
+        calculatorPanel.setLayout(calculatorPanelLayout);
+        calculatorPanelLayout.setHorizontalGroup(
+            calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(calculatorPanelLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(degreeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
+        );
+        calculatorPanelLayout.setVerticalGroup(
+            calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(calculatorPanelLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(degreeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(295, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(calculatorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(calculatorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +120,8 @@ public class mainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel calculatorPanel;
+    private javax.swing.JLabel degreeLabel;
+    private javax.swing.JLabel radianLabel;
     // End of variables declaration//GEN-END:variables
 }
