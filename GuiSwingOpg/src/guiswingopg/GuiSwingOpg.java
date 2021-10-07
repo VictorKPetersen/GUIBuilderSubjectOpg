@@ -12,7 +12,5 @@ public class GuiSwingOpg {
         gui.setSize(800, 800);
         
         gui.setVisible(true);
-        
-        Exchanger calc = new Exchanger();
     }  
 }
