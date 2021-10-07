@@ -7,10 +7,12 @@ public class GuiSwingOpg {
 
 
     public static void main(String[] args) {
-        JFrame gui = new mainWindow();
+        JFrame gui = new MainWindow();
         
-       gui.setSize(800, 800);
+        gui.setSize(800, 800);
         
         gui.setVisible(true);
+        
+        Exchanger calc = new Exchanger();
     }  
 }

@@ -9,12 +9,12 @@ package guiswingopg;
  *
  * @author victo
  */
-public class mainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form mainWindow
      */
-    public mainWindow() {
+    public MainWindow() {
         initComponents();
     }
 
@@ -30,10 +30,11 @@ public class mainWindow extends javax.swing.JFrame {
         calculatorPanel = new javax.swing.JPanel();
         degreeLabel = new javax.swing.JLabel();
         radianLabel = new javax.swing.JLabel();
+        degreeTextField = new javax.swing.JTextField();
+        radianTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Radian - Vinkel Regner");
-        setMaximumSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
 
@@ -49,15 +50,27 @@ public class mainWindow extends javax.swing.JFrame {
         radianLabel.setMinimumSize(new java.awt.Dimension(120, 35));
         radianLabel.setPreferredSize(new java.awt.Dimension(120, 35));
 
+        degreeTextField.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+
+        radianTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radianTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout calculatorPanelLayout = new javax.swing.GroupLayout(calculatorPanel);
         calculatorPanel.setLayout(calculatorPanelLayout);
         calculatorPanelLayout.setHorizontalGroup(
             calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(calculatorPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, calculatorPanelLayout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(degreeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(degreeTextField)
+                    .addComponent(degreeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radianLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radianTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(150, 150, 150))
         );
         calculatorPanelLayout.setVerticalGroup(
@@ -67,7 +80,11 @@ public class mainWindow extends javax.swing.JFrame {
                 .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(degreeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(degreeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radianTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,6 +100,10 @@ public class mainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void radianTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radianTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radianTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,20 +122,21 @@ public class mainWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainWindow().setVisible(true);
+                new MainWindow().setVisible(true);
             }
         });
     }
@@ -122,6 +144,8 @@ public class mainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel calculatorPanel;
     private javax.swing.JLabel degreeLabel;
+    private javax.swing.JTextField degreeTextField;
     private javax.swing.JLabel radianLabel;
+    private javax.swing.JTextField radianTextField;
     // End of variables declaration//GEN-END:variables
 }
