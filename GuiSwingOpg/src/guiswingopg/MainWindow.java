@@ -126,18 +126,22 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        //Is called when the clearBtn is clicked, sets the text of TextFields to an empty string
+        
         inputTextField.setText("");
         outputTextField.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
-        String savedInputLabel = inputLabel.getText();
+        //Is called when switchBtn is clicked, saves the text diffrent labels and textfields are holding. And switches them all around
+        
+        String savedInputLabel = inputLabel.getText(); //Saves the current text from InputLabel in a variable
         String savedOutputLabel = outputLabel.getText();
         
         String savedInputTextField = inputTextField.getText();
         String savedOutputTextField = outputTextField.getText();
         
-        inputLabel.setText(savedOutputLabel);
+        inputLabel.setText(savedOutputLabel); //Sets the text of a label
         outputLabel.setText(savedInputLabel);
         
         inputTextField.setText(savedOutputTextField);
@@ -145,11 +149,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_switchBtnActionPerformed
 
     private void calcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcBtnActionPerformed
+        //Is called when the caclBtn is clicked, saves text of label + textField.
         String savedInputLabel = inputLabel.getText();
         String savedInputTextField = inputTextField.getText();
-        double inputTextFieldNumber = Double.parseDouble(savedInputTextField);
+        
         char operation;
         
+        double inputTextFieldNumber;
+        
+        //If statement that checks what the text of inputLabel is. Changes operation based on result. This changes how calculations proceed.
         if(savedInputLabel.equals("Degrees")) {
             operation = 'd';
         }
@@ -157,9 +165,22 @@ public class MainWindow extends javax.swing.JFrame {
             operation = 'r';
         }
         
-        Exchanger calc = new Exchanger(inputTextFieldNumber, operation);
-        String newNumber = String.valueOf(calc.calcNumber);
-        outputTextField.setText(newNumber);
+        //Try/Catch statement. This is in place to make sure the program wont crash if a mistake is made.
+        //The try block, converts a string to a double, creates an instance of the Exchanger class with said double and the operation which was found above.
+        //Then the value of clacNumber is found and turned back into a string, so that i can appear in a textField.
+        try 
+        {
+            inputTextFieldNumber = Double.parseDouble(savedInputTextField); //Takes string and turns it into a double
+            Exchanger calc = new Exchanger(inputTextFieldNumber, operation);
+            String newNumber = String.valueOf(calc.calcNumber);
+            outputTextField.setText(newNumber);
+        }
+        // The exception block prints the exception to the console for potential troubleshooting, meanwhile changing the outputTextField to a guide.
+        catch(Exception e) 
+        {
+            System.out.println(e);
+            outputTextField.setText("Error, Only use 1-9 and '.' for seperations");
+        }
     }//GEN-LAST:event_calcBtnActionPerformed
 
     public static void main(String args[]) {
