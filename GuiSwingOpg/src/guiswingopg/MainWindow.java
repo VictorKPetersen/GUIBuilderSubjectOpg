@@ -19,36 +19,41 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         calculatorPanel = new javax.swing.JPanel();
-        degreeLabel = new javax.swing.JLabel();
-        radianLabel = new javax.swing.JLabel();
-        degreeTextField = new javax.swing.JTextField();
-        radianTextField = new javax.swing.JTextField();
+        inputLabel = new javax.swing.JLabel();
+        outputLabel = new javax.swing.JLabel();
+        inputTextField = new javax.swing.JTextField();
+        outputTextField = new javax.swing.JTextField();
         calcBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        switchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Radian - Vinkel Regner");
         setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
 
-        degreeLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        degreeLabel.setText("Degrees");
-        degreeLabel.setMaximumSize(new java.awt.Dimension(120, 35));
-        degreeLabel.setMinimumSize(new java.awt.Dimension(120, 35));
-        degreeLabel.setPreferredSize(new java.awt.Dimension(120, 35));
+        inputLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        inputLabel.setText("Degrees");
+        inputLabel.setMaximumSize(new java.awt.Dimension(120, 35));
+        inputLabel.setMinimumSize(new java.awt.Dimension(120, 35));
+        inputLabel.setPreferredSize(new java.awt.Dimension(120, 35));
 
-        radianLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        radianLabel.setText("Radians");
-        radianLabel.setMaximumSize(new java.awt.Dimension(120, 35));
-        radianLabel.setMinimumSize(new java.awt.Dimension(120, 35));
-        radianLabel.setPreferredSize(new java.awt.Dimension(120, 35));
+        outputLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        outputLabel.setText("Radians");
+        outputLabel.setMaximumSize(new java.awt.Dimension(120, 35));
+        outputLabel.setMinimumSize(new java.awt.Dimension(120, 35));
+        outputLabel.setPreferredSize(new java.awt.Dimension(120, 35));
 
-        degreeTextField.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        inputTextField.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
-        radianTextField.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        outputTextField.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
         calcBtn.setText("Calculate");
+        calcBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -57,48 +62,53 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        switchBtn.setText("Switch");
+        switchBtn.setAlignmentX(0.5F);
+        switchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout calculatorPanelLayout = new javax.swing.GroupLayout(calculatorPanel);
         calculatorPanel.setLayout(calculatorPanelLayout);
         calculatorPanelLayout.setHorizontalGroup(
             calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(calculatorPanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(32, 32, 32)
                 .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(calcBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(degreeTextField)
-                    .addComponent(degreeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(calculatorPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(radianTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(calculatorPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                        .addComponent(inputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(150, 150, 150))
+                        .addComponent(inputTextField))
+                    .addGroup(calculatorPanelLayout.createSequentialGroup()
+                        .addComponent(outputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(switchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         calculatorPanelLayout.setVerticalGroup(
             calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(calculatorPanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(73, 73, 73)
                 .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(degreeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radianLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(degreeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radianTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(calculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(calcBtn)
-                    .addComponent(clearBtn))
-                .addContainerGap(134, Short.MAX_VALUE))
+                    .addComponent(outputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(outputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84)
+                .addComponent(clearBtn)
+                .addGap(33, 33, 33)
+                .addComponent(calcBtn)
+                .addGap(27, 27, 27)
+                .addComponent(switchBtn)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,9 +126,41 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        degreeTextField.setText("");
-        radianTextField.setText("");
+        inputTextField.setText("");
+        outputTextField.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
+        String savedInputLabel = inputLabel.getText();
+        String savedOutputLabel = outputLabel.getText();
+        
+        String savedInputTextField = inputTextField.getText();
+        String savedOutputTextField = outputTextField.getText();
+        
+        inputLabel.setText(savedOutputLabel);
+        outputLabel.setText(savedInputLabel);
+        
+        inputTextField.setText(savedOutputTextField);
+        outputTextField.setText(savedInputTextField);
+    }//GEN-LAST:event_switchBtnActionPerformed
+
+    private void calcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcBtnActionPerformed
+        String savedInputLabel = inputLabel.getText();
+        String savedInputTextField = inputTextField.getText();
+        double inputTextFieldNumber = Double.parseDouble(savedInputTextField);
+        char operation;
+        
+        if(savedInputLabel.equals("Degrees")) {
+            operation = 'd';
+        }
+        else {
+            operation = 'r';
+        }
+        
+        Exchanger calc = new Exchanger(inputTextFieldNumber, operation);
+        String newNumber = String.valueOf(calc.calcNumber);
+        outputTextField.setText(newNumber);
+    }//GEN-LAST:event_calcBtnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -157,10 +199,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton calcBtn;
     private javax.swing.JPanel calculatorPanel;
     private javax.swing.JButton clearBtn;
-    private javax.swing.JLabel degreeLabel;
-    private javax.swing.JTextField degreeTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel radianLabel;
-    private javax.swing.JTextField radianTextField;
+    private javax.swing.JLabel inputLabel;
+    private javax.swing.JTextField inputTextField;
+    private javax.swing.JLabel outputLabel;
+    private javax.swing.JTextField outputTextField;
+    private javax.swing.JButton switchBtn;
     // End of variables declaration//GEN-END:variables
 }
